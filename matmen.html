@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>火柴人</title>
+</head>
+<body>
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+        <script>
+                var drawHead = function(ctx) {
+        ctx.beginPath();
+        ctx.arc(100, 50, 30, 0, Math.PI*2, true);
+        ctx.fill();
+    };
+
+    var drawMouth = function(ctx) {
+        ctx.beginPath();
+        ctx.strokeStyle = '#c00';
+        ctx.lineWidth = 3;
+        ctx.arc(100, 50, 20, 0, Math.PI, false);
+        ctx.stroke();
+    };
+
+    var drawEyes = function(ctx) {
+        ctx.beginPath();
+        ctx.fillStyle = '#c00';
+        ctx.arc(90, 45, 3, 0, Math.PI*2, true);
+        ctx.fill();
+        ctx.moveTo(113, 45);
+        ctx.arc(110, 45, 3, 0, Math.PI*2, true);
+        ctx.fill();
+        ctx.stroke();
+    };
+
+    var drawBody = function(ctx) {
+        ctx.beginPath();
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 5;
+        // body
+        ctx.moveTo(100, 80);
+        ctx.lineTo(100, 180);
+        // legs
+        ctx.moveTo(70, 260);
+        ctx.lineTo(100, 180);
+        ctx.lineTo(130, 260);
+        // arms
+        ctx.moveTo(50, 130);
+        ctx.lineTo(100, 100);
+        ctx.lineTo(150, 130);
+        ctx.stroke();
+    };
+
+    window.onload = function() {
+        var canvas=document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+
+        drawHead(ctx);
+        drawMouth(ctx);
+        drawEyes(ctx);
+        drawBody(ctx);
+
+    };
+        </script> 
+    
+</body>
+</html>
+
